@@ -168,7 +168,7 @@ public class World : MonoBehaviour
         {
             if(!blockTypes[chunks[centerX, centerZ].voxelMap[7, i, 7]].isSolid)
             {
-                spawnPosition = new Vector3((VoxelData.WorldSizeInChunks / 2) * VoxelData.ChunkWidth, (float)i + 4f, (VoxelData.WorldSizeInChunks / 2) * VoxelData.ChunkWidth);
+                spawnPosition = new Vector3((VoxelData.WorldSizeInChunks / 2) * VoxelData.ChunkWidth, (float)i + 50f, (VoxelData.WorldSizeInChunks / 2) * VoxelData.ChunkWidth);
                 break;
             }
         }
