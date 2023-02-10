@@ -12,7 +12,7 @@ public class Toolbar : MonoBehaviour
     public RectTransform Highlight;
     public ItemSlot[] ItemSlots;
 
-    int slotIndex = 0;
+    public int slotIndex = 0;
 
     private void Start()
     {
@@ -64,6 +64,27 @@ public class Toolbar : MonoBehaviour
             // update block preview
             Player.ChangePlaceBlockTexture(World.blockTypes[ItemSlots[slotIndex].ItemID]);
         }
+    }
+
+    public void SetSlotIndex(int index)
+    {
+        Debug.Log(index);
+        slotIndex = index;
+        
+        if (slotIndex > ItemSlots.Length - 1)
+        {
+            slotIndex = 0;
+        }
+
+        if (slotIndex < 0)
+        {
+            slotIndex = ItemSlots.Length - 1;
+        }
+        
+        Highlight.position = ItemSlots[slotIndex].icon.transform.position;
+        Player.SelectedBlockIndex = ItemSlots[slotIndex].ItemID;
+        // update block preview
+        Player.ChangePlaceBlockTexture(World.blockTypes[ItemSlots[slotIndex].ItemID]);
     }
 }
 
